@@ -21,6 +21,8 @@ export default function Books(){
 
     useEffect(() => {
 
+        document.title = 'YES4TRADE-Home';
+
         const token = localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')).token : null;
 
         const fetchBook = async () => {

@@ -1,18 +1,20 @@
+"use client";
+
 import { IoLogInOutline } from "react-icons/io5";
 import { RiAccountCircle2Line } from "react-icons/ri";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Input from "../../(components)/Input.jsx";
 import Button from "../../(components)/Button.jsx";
 import Link from "next/link";
 import { useRouter } from "next/navigation.js";
 
-export const metadata = {
-    title: 'Login'
-};
-
 export default function Login(){
     
     const router = useRouter();
+
+    useEffect(() => {
+        document.title = 'YES4TRADE-login';
+    }, []);
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");

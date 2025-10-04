@@ -9,6 +9,8 @@ export default function Home(){
 
   useEffect(() => {
 
+    document.title = 'YES4TRADE-Home';
+
     const token = JSON.parse(localStorage.getItem('token'));
 
     if(!token){

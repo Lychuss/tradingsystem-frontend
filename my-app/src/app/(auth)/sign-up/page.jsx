@@ -1,18 +1,20 @@
+"use client";
+
 import { IoLogInOutline } from "react-icons/io5";
 import { RiAccountCircle2Line } from "react-icons/ri";
-import { useState } from "react";
+import { useState, useEffect} from "react";
 import Input from "../../(components)/Input.jsx";
 import Button from "../../(components)/Button.jsx";
 import Link from "next/link";
 import { SelectCollege1 } from "@/app/(components)/Select.jsx";
 import { useRouter } from "next/navigation.js";
 
-export const metadata = {
-    title: 'Sign-Up'
-};
-
 export default function SignUp(){
     const router = useRouter();
+
+    useEffect(() => {
+        document.title = 'YES4TRADE-Sign-Up';
+    }, []);
 
     const [username, setUsername] = useState('');
     const [studentId, setStudentId] = useState('');
