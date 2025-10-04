@@ -13,7 +13,7 @@ export default function Login(){
     const router = useRouter();
 
     useEffect(() => {
-        document.title = 'YES4TRADE-Login'
+        document.title = 'YES4TRADE-Login';
     }, []);
 
     const [username, setUsername] = useState("");
