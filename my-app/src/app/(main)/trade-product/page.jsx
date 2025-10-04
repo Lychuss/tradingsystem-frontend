@@ -1,5 +1,4 @@
-"use client";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Input from "../../(components)/Input.jsx";
 import { useRouter } from "next/navigation.js";
 import Button from "../../(components)/Button.jsx";

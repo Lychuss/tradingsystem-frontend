@@ -1,5 +1,3 @@
-"use client";
-
 import { IoLogInOutline } from "react-icons/io5";
 import { RiAccountCircle2Line } from "react-icons/ri";
 import { useState } from "react";
