@@ -7,10 +7,9 @@ import Input from "../../(components)/Input.jsx";
 import Button from "../../(components)/Button.jsx";
 import Link from "next/link";
 import { useRouter } from "next/navigation.js";
-import dotenv from 'dotenv';
-dotenv.config();
 
 export default function Login(){
+    
     
     const router = useRouter();
 
@@ -24,6 +23,7 @@ export default function Login(){
     const [errors, setError] = useState(false);
 
     const submitAccount = async () => {
+
         const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/yes4trade/auth/login`, {
             method: 'POST',
             headers: {
