@@ -8,13 +8,13 @@ import Button from "../../(components)/Button.jsx";
 import Link from "next/link";
 import { useRouter } from "next/navigation.js";
 
+export const metadata = {
+    title: 'Login'
+};
+
 export default function Login(){
     
     const router = useRouter();
-
-    useEffect(() => {
-        document.title = 'YES4TRADE-Login';
-    }, []);
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");

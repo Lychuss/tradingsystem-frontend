@@ -5,12 +5,12 @@ import { useRouter } from "next/navigation.js";
 import Button from "../../(components)/Button.jsx";
 import { SelectProduct, SelectMethod, SelectCollege } from "../../(components)/Select.jsx";
 
+export const metadata = {
+    title: 'Login'
+};
+
 export default function Trade(){
     const router = useRouter();
-
-    useEffect(() => {
-        document.title = 'YES4TRADE-Trade-Sell-Post'
-    }, []);
 
     const [email, setEmail] = useState("");
     const [location, setLocation] = useState("");
