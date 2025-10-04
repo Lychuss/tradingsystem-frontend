@@ -1,4 +1,5 @@
-"use-client";
+"use client";
+
 import Books from '../(components)/Home.jsx';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation.js';
