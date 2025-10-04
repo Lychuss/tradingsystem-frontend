@@ -42,7 +42,7 @@ export default function Login(){
         }
 
         localStorage.setItem('token', JSON.stringify(data));
-        return router.push("/");
+        return router.push("/home");
 
     }
 

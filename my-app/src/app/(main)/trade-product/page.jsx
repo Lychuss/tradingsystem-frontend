@@ -89,7 +89,7 @@ export default function Trade(){
                     return alert(data.message);
                 }
 
-                return router.push('/');
+                return router.push('/home');
 
           } else {
                 
@@ -109,7 +109,7 @@ export default function Trade(){
                     return alert(data.message);
                 }
 
-                return router.push('/');
+                return router.push('/home');
             }
                 
     }
