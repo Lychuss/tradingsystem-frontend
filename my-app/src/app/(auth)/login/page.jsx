@@ -7,6 +7,8 @@ import Input from "../../(components)/Input.jsx";
 import Button from "../../(components)/Button.jsx";
 import Link from "next/link";
 import { useRouter } from "next/navigation.js";
+import dotenv from 'dotenv';
+dotenv.config();
 
 export default function Login(){
     

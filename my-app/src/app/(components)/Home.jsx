@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation.js";
+import dotenv from 'dotenv';
+dotenv.config();
 
 export default function Books(){
 

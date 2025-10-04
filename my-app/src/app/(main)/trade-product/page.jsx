@@ -5,6 +5,8 @@ import Input from "../../(components)/Input.jsx";
 import { useRouter } from "next/navigation.js";
 import Button from "../../(components)/Button.jsx";
 import { SelectProduct, SelectMethod, SelectCollege } from "../../(components)/Select.jsx";
+import dotenv from 'dotenv';
+dotenv.config();
 
 export default function Trade(){
     const router = useRouter();

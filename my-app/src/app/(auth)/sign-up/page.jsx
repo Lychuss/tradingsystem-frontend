@@ -8,6 +8,8 @@ import Button from "../../(components)/Button.jsx";
 import Link from "next/link";
 import { SelectCollege1 } from "@/app/(components)/Select.jsx";
 import { useRouter } from "next/navigation.js";
+import dotenv from 'dotenv';
+dotenv.config();
 
 export default function SignUp(){
     const router = useRouter();
