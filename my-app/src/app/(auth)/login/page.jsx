@@ -12,6 +12,10 @@ export default function Login(){
     
     const router = useRouter();
 
+    useEffect(() => {
+        document.title = 'YES4TRADE-Login'
+    }, []);
+
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [message, setMessage] = useState("");

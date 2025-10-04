@@ -8,9 +8,14 @@ import Button from "../../(components)/Button.jsx";
 import Link from "next/link";
 import { SelectCollege1 } from "@/app/(components)/Select.jsx";
 import { useRouter } from "next/navigation.js";
+import { useEffect } from "react";
 
 export default function SignUp(){
     const router = useRouter();
+
+    useEffect(() => {
+        document.title = 'YES4TRADE-Sign-Up'
+    }, []);
 
     const [username, setUsername] = useState('');
     const [studentId, setStudentId] = useState('');

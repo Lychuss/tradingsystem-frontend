@@ -8,6 +8,10 @@ import { SelectProduct, SelectMethod, SelectCollege } from "../../(components)/S
 export default function Trade(){
     const router = useRouter();
 
+    useEffect(() => {
+        document.title = 'YES4TRADE-Trade-Sell-Post'
+    }, []);
+
     const [email, setEmail] = useState("");
     const [location, setLocation] = useState("");
     const [program, setProgram] = useState("");
