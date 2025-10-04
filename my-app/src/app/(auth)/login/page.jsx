@@ -34,6 +34,7 @@ export default function Login(){
         if(!response.ok){
             setError(true);
             setMessage(data.message);
+            return;
         }
 
         localStorage.setItem('token', JSON.stringify(data));

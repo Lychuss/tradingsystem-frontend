@@ -9,7 +9,7 @@ export default function Trade(){
     const router = useRouter();
 
     const [email, setEmail] = useState("");
-    const [studentId, setStudentId] = useState("");
+    const [location, setLocation] = useState("");
     const [program, setProgram] = useState("");
     const [type, setType] = useState("");
     const [method, setMethod] = useState("");
@@ -52,7 +52,7 @@ export default function Trade(){
             formData.append("title", productName);
             formData.append("methods", method);
             formData.append("email", email);
-            formData.append("studentId", studentId);
+            formData.append("location", location);
             formData.append("program", program);
             formData.append("type", type);
 
@@ -111,7 +111,7 @@ export default function Trade(){
                     <Input type="email" titleClassName="text-3xl mb-4 font-bold" inputClassName="outline-none border-0 border-b w-100 border-white-500 rounded-sm" onChange={(e) => setEmail(e.target.value)} label="Email: " placeholder="Enter your email" />
                     </div>
                     <div className="m-15 px-10 rounded-lg font-mono">
-                    <Input type="text" titleClassName="text-3xl mb-4 font-bold" inputClassName="outline-none border-0 border-b w-100 border-white-500 rounded-sm" onChange={(e) => setStudentId(e.target.value)} label="Student ID: " placeholder="Enter your Student ID"/>
+                    <Input type="text" titleClassName="text-3xl mb-4 font-bold" inputClassName="outline-none border-0 border-b w-100 border-white-500 rounded-sm" onChange={(e) => setLocation(e.target.value)} label="Location: " placeholder="Enter location for meet up"/>
                     </div>
                     <div className="m-15 px-10 rounded-lg font-mono">
                     <Input type="text" titleClassName="text-3xl mb-4 font-bold" inputClassName="outline-none border-0 border-b w-100 border-white-500 rounded-sm" onChange={(e) => setProductName(e.target.value)} label="Product Name" placeholder="Enter the product name" />
