@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 
 export const metadata = {
   title: {
-    default: "YES4TRADE",
+    default: "YES4TRADE-Home",
     template: "YES4TRADE-%s",
   },
   description: "Trading system web app",

@@ -4,10 +4,6 @@ import Books from '../(components)/Home.jsx';
 import { useEffect } from 'react';
 import { useRouter } from 'next/navigation.js';
 
-export const metadata = {
-    title: 'Home'
-};
-
 export default function Home(){
   const router = useRouter();
 
