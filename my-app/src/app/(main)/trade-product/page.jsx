@@ -74,6 +74,13 @@ export default function Trade(){
 
                 console.log(response.status);
 
+                const refreshToken = response.headers.get('x-refresh-token');
+
+                if(refreshToken) {
+                    localStorage.setItem('token', refreshToken);
+                }
+                
+
                 if(!response.ok){
                     return alert(data.message);
                 }
