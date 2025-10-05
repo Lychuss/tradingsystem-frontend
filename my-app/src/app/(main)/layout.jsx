@@ -38,7 +38,7 @@ export default function RootLayout({ children }) {
             </select>
           </div>
           <div className="p-1 rounded-lg font-mono absolute left-1/2 transform -translate-x-1/2 flex items-center space-x-20 border font-bold">
-            <Link href="/" className="text-2xl cursor-pointer" >YES4TRADE</Link>
+            <Link href="/home" className="text-2xl cursor-pointer" >YES4TRADE</Link>
             <div className="font-mono flex items-center space-x-8 font-bold">
               <p>Books</p>
               <p>Notes</p>
