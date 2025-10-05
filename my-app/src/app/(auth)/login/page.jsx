@@ -76,7 +76,7 @@ export default function Login(){
                     type="email" placeholder="Enter you SLSU email" />
                 </div>
                 <div className="self-start ml-15 mt-5 flex flex-col text-sm">
-                    <Input titleClassName="text-sm" inputClassName="border-b outline-none rounded-sm py-1 px-2 w-90 text-xs mt-2" type="text" placeholder="Enter your password"
+                    <Input titleClassName="text-sm" inputClassName="border-b outline-none rounded-sm py-1 px-2 w-90 text-xs mt-2" type="password" placeholder="Enter your password"
                     onChange={(e) => setPassword(e.target.value)} label="Enter your Password: "/>
                     {error(errors)}
                 </div>
