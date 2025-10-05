@@ -32,6 +32,20 @@ The frontend provides an intuitive and responsive user interface that communicat
 
 ## Folder Structure
 
+my-app/
+│
+├── src/
+│ ├── app/
+│ │ ├── (auth)/ # Login and Sign-up pages
+│ │ ├── (main)/ # Home and Trade pages with layout
+│ │ ├── (components)/ # Reusable UI components
+│ │ └── globals.css # Tailwind global styles
+│ │
+│ └── page.jsx # Entry point (redirects to /login)
+│
+├── public/ # Static assets
+├── package.json
+└── README.md
 
 ---
 
