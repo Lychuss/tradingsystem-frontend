@@ -82,10 +82,9 @@ export default function Trade(){
                 const refreshToken = response.headers.get('x-refresh-token');
 
                 if(refreshToken) {
-                    localStorage.setItem('token', refreshToken);
+                    localStorage.setItem('token', JSON.stringify(refreshToken));
                 }
                 
-
                 if(!response.ok){
                     return alert(data.message);
                 }
