@@ -24,7 +24,7 @@ export default function SignUp(){
     const [college, setCollege] = useState('');
 
     const signUp = async () => {
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/yes4trade/auth/signup`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade/auth/signup`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

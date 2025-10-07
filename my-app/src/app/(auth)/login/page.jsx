@@ -24,7 +24,10 @@ export default function Login(){
 
     const submitAccount = async () => {
 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/yes4trade/auth/login`, {
+        console.log(process.env.NEXT_PUBLIC_API_URL);
+        console.log(process.env.NEXT_PUBLIC_LOCAL_API_URL);
+
+        const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade/auth/login`, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

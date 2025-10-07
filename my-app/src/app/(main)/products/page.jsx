@@ -67,7 +67,7 @@ export default function Trade(){
                 console.log(picture);
                 formData.append("requirement", requirement);
 
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/yes4trade/upload-trade`, {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade/upload-trade`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${token}`
@@ -96,7 +96,7 @@ export default function Trade(){
                 
                 formData.append("price", price);
 
-                const response = await fetch(`${process.env.NEXT_PUBLIC_API_URL}/yes4trade/upload-sell`, {
+                const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade/upload-sell`, {
                     method: 'POST',
                     headers: {
                         'Authorization': `Bearer ${token}`
