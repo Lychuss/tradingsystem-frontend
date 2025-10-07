@@ -72,6 +72,7 @@ export default function Trade(){
                     headers: {
                         'Authorization': `Bearer ${token}`
                     },
+                    credentials: 'include',
                     body: formData
                 });
 
@@ -100,6 +101,7 @@ export default function Trade(){
                     headers: {
                         'Authorization': `Bearer ${token}`
                     },
+                    credentials: 'include',
                     body: formData
                 });
 
