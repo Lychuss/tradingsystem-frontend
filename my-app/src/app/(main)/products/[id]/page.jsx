@@ -13,5 +13,11 @@ export default function Product({ params }){
                 'Authorization': `Bearer ${token}`
             }
         });
+
+        if(!response.ok) return alert('Error not able to get specific product!');
+
+        const data = await response.json();
+
+        console.log(data);
     } 
 }
