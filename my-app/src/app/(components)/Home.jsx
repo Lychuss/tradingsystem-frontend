@@ -27,7 +27,7 @@ export default function Books(){
 
         const fetchBook = async () => {
 
-            const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade/getbooks`, {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade/products`, {
                 method: 'GET',
                 headers: {
                     'Authorization': `Bearer ${token}`

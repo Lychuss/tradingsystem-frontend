@@ -14,6 +14,8 @@ export default function Home(){
 
     const token = JSON.parse(localStorage.getItem('token'));
 
+    console.log(token);
+
     if(!token){
       router.push('/login');
     }

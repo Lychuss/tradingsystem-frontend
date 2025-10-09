@@ -44,7 +44,7 @@ export default function RootLayout({ children }) {
               <p>Notes</p>
               <p>Uniforms</p>
             </div>
-            <Link href="/trade-product" className="border bg-green-300 rounded-lg py-1 px-2 text-black cursor-pointer">Let's Trade</Link>
+            <Link href="/trading-products" className="border bg-green-300 rounded-lg py-1 px-2 text-black cursor-pointer">Let's Trade</Link>
           </div>
           <div className="justify-between space-x-55
           ">
