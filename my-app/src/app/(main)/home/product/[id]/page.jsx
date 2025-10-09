@@ -1,8 +1,9 @@
 "use client";
 import { useState, useEffect } from "react";
+import React from 'react';
 
 export default function Product({ params }) {
-    const { id } = params;
+    const { id } = React.use(params);
     const [items, setItems] = useState([]);
     const [token, setToken] = useState(null);
 
@@ -41,7 +42,8 @@ export default function Product({ params }) {
 
     return (
         <div className="p-10">
-        <h1>Product ID: {id}</h1>
+        <h1>Product ID: {items.email}, {items.title}</h1>
+        <img src={items.url}></img>
         </div>
     );
 }
