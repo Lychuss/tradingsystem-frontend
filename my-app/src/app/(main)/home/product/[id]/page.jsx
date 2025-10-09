@@ -1,29 +1,47 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const token = localStorage.getItem('token').token ? JSON.parse(localStorage.getItem('token')).token : null;
-
-export default function Product({ params }){
+export default function Product({ params }) {
     const { id } = params;
-    const {items, setItems} = useState([]);
+    const [items, setItems] = useState([]);
+    const [token, setToken] = useState(null);
 
-    const getProduct = async () =>{
+    useEffect(() => {
+        const stored = localStorage.getItem("token");
+        if (stored) {
+        try {
+            const parsed = JSON.parse(stored);
+            setToken(parsed.token);
+        } catch (e) {
+            console.error("Invalid token format:", e);
+        }
+        }
+    }, []);
 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade/products/{${id}}`, {
-            method: 'GET',
-            headers: {
-                'Authorization': `Bearer ${token}`
+    useEffect(() => {
+        const getProduct = async () => {
+        if (!token) return; 
+        try {
+            const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade/products/${id}`, {
+                method: "GET",
+                headers: {
+                Authorization: `Bearer ${token}`,
+                },
             }
-        });
+            );
+            const data = await response.json();
+            setItems(data);
+        } catch (err) {
+            console.error("Failed to fetch product:", err);
+        }
+        };
 
-        if(!response.ok) return alert('Error not able to get specific product!');
+        getProduct();
+    }, [id, token]);
 
-        const data = await response.json();
-
-        setItems(data);
-    } 
-
-    return <>
-        <h1>${items}</h1>
-    </>
+    return (
+        <div className="p-10">
+        <h1>Product ID: {id}</h1>
+        </div>
+    );
 }
