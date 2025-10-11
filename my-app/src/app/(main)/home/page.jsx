@@ -25,7 +25,7 @@ export default function Home(){
     const methods = (method, type1, type2) => {
         if(method === 1 ){
             if(type1.length > 10) {
-                return <p>Requirements: {type1.slice(0, 10) + '...'}</p>
+                return <p>Requirements: {type1.slice(0, 10)}...</p>
             } 
             return <p>Requirements: {type1}</p>
         }

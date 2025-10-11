@@ -48,6 +48,7 @@ export default function Login(){
         }
 
         localStorage.setItem('token', JSON.stringify(data));
+        localStorage.setItem('email', JSON.stringify(username));
         return router.push("/home");
 
     }

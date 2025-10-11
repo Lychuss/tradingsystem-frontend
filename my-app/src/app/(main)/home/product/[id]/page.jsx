@@ -1,11 +1,14 @@
 "use client";
 import { useState, useEffect } from "react";
 import React from 'react';
+import Button from "@/app/(components)/Button";
 
 export default function Product({ params }) {
     const { id } = React.use(params);
     const [items, setItems] = useState([]);
     const [token, setToken] = useState(null);
+    const [description, setDescription] = useState('');
+    const email = localStorage.getItem('email') ? JSON.parse(localStorage.getItem('email')) : null;
 
     useEffect(() => {
         const stored = localStorage.getItem("token");
@@ -40,10 +43,64 @@ export default function Product({ params }) {
         getProduct();
     }, [id, token]);
 
+    const method = (method, requirement, price) => {
+        if(method === 'Trade'){
+            return <>
+                <h1 className="mt-3">
+                    Trade For:
+                </h1>
+                <p>{requirement}</p>
+            </>
+        }
+        return  <>
+                <h1 className="mt-3">
+                    Price:
+                </h1>
+                <p>₱{price}</p>
+            </>
+    }
+
+    const sendEmail = async () => {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade/products/send-email`, {
+            method: 'POST',
+            headers: {
+                'Authorization': `Bearer ${token}`,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                to: items.email,
+                from: email,
+                message: description
+            })
+        });
+    }
+
     return (
-        <div className="p-10">
-        <h1>Product ID: {items.email}, {items.title}</h1>
-        <img src={items.url}></img>
-        </div>
+        <>
+        <section className="flex font-mono">
+            <div>
+                <img src={items.url} alt={items.title} className="border rounded-lg w-90 h-90 m-10" ></img>
+            </div>
+            <div className="inline-block">
+                <h1 className="mt-10">Product name:</h1>
+                <p>{items.title}</p>
+                <h1 className="mt-3">Type:</h1>
+                <p>{items.types}</p>
+                <h1 className="mt-3">College Program:</h1>
+                <p>{items.programs}</p>
+                <h1 className="mt-3">Methods:</h1>
+                <p>{items.methods}</p>
+                {method(items.methods, items.requirements, items.price)}
+            </div>
+            <div className="inline-block ml-25">
+                <h1 className="mt-10">Description:</h1>
+                <textarea className="w-150 h-53" onChange={(e) => setDescription(e.target.value)} placeholder="Enter your description for trader to see"></textarea>
+            </div>
+            <div>
+                <Button onClick={sendEmail} label="Send Email" className="font-mono absolute right-65 top-110
+                    cursor-pointer font-bold mx-auto block border rounded-lg px-7 py-2 text-3xl"/>
+            </div>
+        </section>
+        </>
     );
 }
