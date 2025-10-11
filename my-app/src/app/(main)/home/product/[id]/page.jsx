@@ -8,6 +8,7 @@ export default function Product({ params }) {
     const [items, setItems] = useState([]);
     const [token, setToken] = useState(null);
     const [description, setDescription] = useState('');
+    const [showPopup, setShowPopup] = useState(false);
     const email = localStorage.getItem('email') ? JSON.parse(localStorage.getItem('email')) : null;
 
     useEffect(() => {
@@ -73,6 +74,13 @@ export default function Product({ params }) {
                 message: description
             })
         });
+
+        if(!response.ok){
+            return alert('Not able to send email error!');
+        }
+
+        setShowPopup(true);
+            setTimeout(() => setShowPopup(false), 3000);
     }
 
     return (
@@ -101,6 +109,14 @@ export default function Product({ params }) {
                     cursor-pointer font-bold mx-auto block border rounded-lg px-7 py-2 text-3xl"/>
             </div>
         </section>
+        {showPopup && (
+            <div
+                className="fixed top-10 right-10 bg-green-500 text-white px-6 py-3 rounded-2xl shadow-2xl font-medium
+                            transform transition-all duration-500 ease-out animate-slideDownFadeIn"
+            >
+                Email sent successfully!
+            </div>
+        )}
         </>
     );
 }
