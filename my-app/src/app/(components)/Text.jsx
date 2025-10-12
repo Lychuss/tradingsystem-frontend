@@ -6,7 +6,8 @@ export default function Text() {
 
   useEffect(() => {
     try {
-      const stored = localStorage.getItem('studentId') ? JSON.parse(localStorage.getItem('studentId')) : null;
+      const stored = localStorage.getItem('studentId') ? localStorage.getItem('studentId') : null;
+      console.log(stored);
       setStudentId(stored);
     } catch (err) {
       console.error("Error reading studentId:", err);

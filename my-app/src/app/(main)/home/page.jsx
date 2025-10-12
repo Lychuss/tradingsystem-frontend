@@ -6,18 +6,20 @@ import { useRouter } from 'next/navigation.js';
 
 export default function Home(){
   const router = useRouter();
+  const [token, setToken] = useState('');
 
   useEffect(() => {
 
     document.title = 'YES4TRADE-Home';
 
-    const token = JSON.parse(localStorage.getItem('token'));
-
-    console.log(token);
+    const token = localStorage.getItem('token');
 
     if(!token){
       router.push('/login');
     }
+
+    setToken(token);
+
   }, [router])
 
     const [items, setItems] = useState([]);
@@ -35,8 +37,6 @@ export default function Home(){
     useEffect(() => {
 
         document.title = 'YES4TRADE-Home';
-
-        const token = localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')).token : null;
 
         const fetchBook = async () => {
 

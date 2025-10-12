@@ -8,9 +8,18 @@ import { SelectProduct, SelectMethod, SelectCollege } from "../../(components)/S
 
 export default function Trade(){
     const router = useRouter();
+    const [token, setToken] = useState('');
 
     useEffect(() => {
         document.title = 'YES4TRADE-Trade-Sell-Product';
+
+        const token = localStorage.getItem('token');
+
+        if(!token){
+            return router.push('/login');
+        } 
+
+        setToken(token);
     }, []);
 
     const [email, setEmail] = useState("");
@@ -50,8 +59,6 @@ export default function Trade(){
     }
 
     const handlePost =  async () => {
-        const token = localStorage.getItem('token') ? JSON.parse(localStorage.getItem('token')).token : null;
-
         const formData = new FormData();
             formData.append("image", picture); 
             formData.append("title", productName);
@@ -82,6 +89,7 @@ export default function Trade(){
 
                 if(refreshToken) {
                     localStorage.setItem('token', JSON.stringify(refreshToken));
+                    setToken(refreshToken);
                 }
                 
                 if(!response.ok){
@@ -114,6 +122,7 @@ export default function Trade(){
 
                 if(refreshToken) {
                     localStorage.setItem('token', JSON.stringify(refreshToken));
+                    setToken(refreshToken);
                 }
 
                 if(data.expired){

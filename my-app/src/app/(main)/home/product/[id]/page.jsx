@@ -17,8 +17,7 @@ export default function Product({ params }) {
         const stored = localStorage.getItem('token');
         if (stored) {
         try {
-            const parsed = JSON.parse(stored);
-            setToken(parsed);
+            setToken(stored);
         } catch (e) {
             console.error("Invalid token format:", e);
         }

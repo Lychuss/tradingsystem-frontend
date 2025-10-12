@@ -50,7 +50,7 @@ export default function Login(){
         localStorage.setItem('token', JSON.stringify(data.token));
         localStorage.setItem('email', JSON.stringify(username));
         localStorage.setItem('studentId', JSON.stringify(data.student_id));
-        console.log(data);
+        console.log(data.token, data.student_id);
         return router.push("/home");
 
     }
