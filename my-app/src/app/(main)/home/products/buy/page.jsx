@@ -17,21 +17,24 @@ export default function BuyProduct(){
         }
     }, [])
 
-    useEffect(async () => {
+    useEffect(() => {
 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade/prodcuts/sells`, {
+        if(!token) return;
+
+       const fetchBook = async () => { 
+        const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade/products/sells`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`
             }
         });
 
-        const data = await response();
+        const data = await response.json();
 
         const refreshToken = response.headers.get('x-refresh-token');
 
         if(refreshToken){
-            localStorage.setItem('token', JSON.stringify(refreshToken));
+            localStorage.setItem('token', refreshToken);
         }
 
         if(!response.ok){
@@ -40,7 +43,11 @@ export default function BuyProduct(){
 
         setItems(data);
 
-    }, [items])
+    }
+
+    fetchBook();
+
+    }, [token])
 
 
      return (

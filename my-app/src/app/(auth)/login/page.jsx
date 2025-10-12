@@ -47,10 +47,9 @@ export default function Login(){
             return;
         }
 
-        localStorage.setItem('token', JSON.stringify(data.token));
+        localStorage.setItem('token', data.token);
         localStorage.setItem('email', JSON.stringify(username));
-        localStorage.setItem('studentId', JSON.stringify(data.student_id));
-        console.log(data.token, data.student_id);
+        localStorage.setItem('studentId', data.student_id);
         return router.push("/home");
 
     }
