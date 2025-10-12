@@ -78,8 +78,6 @@ export default function Trade(){
 
                 const data = await response.json();
 
-                console.log(response.status);
-
                 const refreshToken = response.headers.get('x-refresh-token');
 
                 if(refreshToken) {
@@ -88,6 +86,11 @@ export default function Trade(){
                 
                 if(!response.ok){
                     return alert(data.message);
+                }
+
+                
+                if(data.expired){
+                    return router.push('/login');
                 }
 
                 return router.push('/home');
@@ -106,6 +109,16 @@ export default function Trade(){
                 });
 
                 const data = await response.json();
+
+                const refreshToken = response.headers.get('x-refresh-token');
+
+                if(refreshToken) {
+                    localStorage.setItem('token', JSON.stringify(refreshToken));
+                }
+
+                if(data.expired){
+                    return router.push('/login');
+                }
 
                 if(!response.ok){
                     return alert(data.message);

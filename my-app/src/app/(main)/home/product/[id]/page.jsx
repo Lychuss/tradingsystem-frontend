@@ -2,6 +2,7 @@
 import { useState, useEffect } from "react";
 import React from 'react';
 import Button from "@/app/(components)/Button";
+import { useRouter } from "next/navigation";
 
 export default function Product({ params }) {
     const { id } = React.use(params);
@@ -10,6 +11,7 @@ export default function Product({ params }) {
     const [description, setDescription] = useState('');
     const [showPopup, setShowPopup] = useState(false);
     const email = localStorage.getItem('email') ? JSON.parse(localStorage.getItem('email')) : null;
+    const router = useRouter();
 
     useEffect(() => {
         const stored = localStorage.getItem("token");
@@ -35,6 +37,21 @@ export default function Product({ params }) {
             }
             );
             const data = await response.json();
+
+            const refreshToken = response.headers.get('x-refresh-token');
+
+            if(refreshToken) {
+                localStorage.setItem('token', JSON.stringify(refreshToken));
+            }
+
+            if(data.expired){
+                return router.push('/login');
+            }
+
+            if(!response.ok){
+                return alert(data.message);
+            }
+
             setItems(data);
         } catch (err) {
             console.error("Failed to fetch product:", err);
