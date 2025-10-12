@@ -14,11 +14,11 @@ export default function Product({ params }) {
     const router = useRouter();
 
     useEffect(() => {
-        const stored = localStorage.getItem("token");
+        const stored = localStorage.getItem('token');
         if (stored) {
         try {
             const parsed = JSON.parse(stored);
-            setToken(parsed.token);
+            setToken(parsed);
         } catch (e) {
             console.error("Invalid token format:", e);
         }
