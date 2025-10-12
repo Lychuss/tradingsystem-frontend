@@ -110,12 +110,14 @@ export default function Product({ params }) {
             </div>
         </section>
         {showPopup && (
+        <div className="fixed inset-0 flex items-center justify-center">
             <div
-                className="fixed top-10 right-10 bg-green-500 text-white px-6 py-3 rounded-2xl shadow-2xl font-medium
-                            transform transition-all duration-500 ease-out animate-slideDownFadeIn"
+            className="bg-green-500 text-white px-6 py-3 rounded-2xl shadow-2xl font-medium
+                        transform transition-all duration-500 ease-out animate-slideDownFadeIn"
             >
-                Email sent successfully!
+            Email sent successfully!
             </div>
+        </div>
         )}
         </>
     );

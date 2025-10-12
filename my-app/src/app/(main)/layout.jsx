@@ -2,9 +2,8 @@ import Link from "next/link";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { FaShoppingCart } from "react-icons/fa";
-import Text from "../(components)/Text";
 import { CgProfile } from "react-icons/cg";
-
+import Header from "../(components)/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -49,11 +48,8 @@ export default function RootLayout({ children }) {
             </div>
             <Link href="/trading-products" className="border bg-green-300 rounded-lg py-1 px-2 text-black cursor-pointer">Let's Trade</Link>
           </div>
-          <div className="justify-between space-x-55
-          ">
-            <FaShoppingCart className="inline-block border rounded-sm text-black w-10 h-10 p-2 bg-white"/>
-            <Text />
-            <CgProfile className="inline-block rounded-sm text-white w-13 h-13 p-2"/>
+          <div>
+            <Header />
           </div>
         </header>
         <main>
