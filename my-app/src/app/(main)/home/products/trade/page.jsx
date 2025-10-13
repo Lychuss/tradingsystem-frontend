@@ -22,7 +22,7 @@ export default function BuyProduct(){
         if(!token) return;
 
        const fetchBook = async () => { 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade/trade/products`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade/trades/products`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`
