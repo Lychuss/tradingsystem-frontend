@@ -33,6 +33,23 @@ export default function Home() {
     return <p>Price: ₱{type2}</p>;
   };
 
+  const button = (method, product_id) => {
+    if(method === 1){
+      return <button
+              onClick={() => router.push(`/home/product/${product_id}`)}
+              className="font-bold border border-black rounded-lg px-4 py-2 my-2 bg-green-700 cursor-pointer mx-auto block"
+            >
+              Trade
+            </button>
+    }
+      return <button
+          onClick={() => router.push(`/home/product/${product_id}`)}
+          className="font-bold border border-black rounded-lg px-4 py-2 my-2 bg-green-700 cursor-pointer mx-auto block"
+        >
+          Buy
+        </button>
+  }
+
 
   useEffect(() => {
     if (!token) return; 
@@ -84,12 +101,7 @@ export default function Home() {
               <h1 className="font-bold">{item.title}</h1>
               {methods(item.methods, item.requirements, item.price)}
             </div>
-            <button
-              onClick={() => router.push(`/home/product/${item.product_id}`)}
-              className="font-bold border border-black rounded-lg px-4 py-2 my-2 bg-green-700 cursor-pointer mx-auto block"
-            >
-              Trade
-            </button>
+            {button(item.methods, item.product_id)}
           </div>
         </section>
       ))}
