@@ -22,7 +22,7 @@ export default function BuyProduct(){
         if(!token) return;
 
        const fetchBook = async () => { 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade/products/sells`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade/sells/products`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`
@@ -30,6 +30,8 @@ export default function BuyProduct(){
         });
 
         const data = await response.json();
+
+        console.log(data.data);
 
         const refreshToken = response.headers.get('x-refresh-token');
 
@@ -41,13 +43,25 @@ export default function BuyProduct(){
             return alert(data.message);
         }
 
-        setItems(data);
+        setItems(data.data);
 
     }
 
     fetchBook();
 
-    }, [token])
+    }, [token]);
+
+      const methods = (method, type1, type2) => {
+        if (method === 1) {
+            return (
+                <p>
+                Requirements: {type1.length > 10 ? `${type1.slice(0, 10)}...` : type1}
+                </p>
+            );
+        }
+        return <p>Price: ₱{type2}</p>;
+    };
+
 
 
      return (
