@@ -10,7 +10,7 @@ import { useRouter } from "next/navigation.js";
 
 export default function Login(){
     
-    
+    const name = "Grant";
     const router = useRouter();
 
     useEffect(() => {
