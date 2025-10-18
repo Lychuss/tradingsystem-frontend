@@ -40,8 +40,8 @@ export default function RootLayout({ children }) {
             <Link href="/home" className="text-2xl cursor-pointer" >YES4TRADE</Link>
             <div className="font-mono flex items-center space-x-8 font-bold">
               <Link href="/home/products/books">Books</Link>
-              <p>Notes</p>
-              <p>Uniforms</p>
+              <Link href="/home/products/notes">Notes</Link>
+              <Link href="/home/products/uniforms">Uniforms</Link>
             </div>
             <Link href="/trading-products" className="border bg-green-300 rounded-lg py-1 px-2 text-black cursor-pointer">Let's Trade</Link>
           </div>
