@@ -2,7 +2,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-export default function BuyProduct(){
+export default function BooksProduct(){
     const router = useRouter();
 
     const [items, setItems] = useState([]);
@@ -22,7 +22,7 @@ export default function BuyProduct(){
         if(!token) return;
 
        const fetchBook = async () => { 
-        const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade//products`, {
+        const response = await fetch(`${process.env.NEXT_PUBLIC_LOCAL_API_URL}/yes4trade/books/products`, {
             method: 'GET',
             headers: {
                 'Authorization': `Bearer ${token}`
