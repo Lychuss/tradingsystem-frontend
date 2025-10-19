@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation.js';
+import Button from '@/app/(components)/Button';
 
 export default function Home() {
   const router = useRouter();
@@ -35,19 +36,9 @@ export default function Home() {
 
   const button = (method, product_id) => {
     if(method === 1){
-      return <button
-              onClick={() => router.push(`/home/product/${product_id}`)}
-              className="font-bold border border-black rounded-lg px-4 py-2 my-2 bg-green-700 cursor-pointer mx-auto block"
-            >
-              Trade
-            </button>
+      return <Button className="font-bold border-none rounded-lg px-4 py-2 my-2 bg-green-700 hover:shadow-[0_0_15px_rgba(74,222,128,0.9)] transition-shadow duration-300 block cursor-pointer mx-auto block" label="Trade" onClick={() => router.push(`/home/product/${product_id}`)} />
     }
-      return <button
-          onClick={() => router.push(`/home/product/${product_id}`)}
-          className="font-bold border border-black rounded-lg px-4 py-2 my-2 bg-green-700 cursor-pointer mx-auto block"
-        >
-          Buy
-        </button>
+      return <Button className="font-bold border border-none rounded-lg px-4 py-2 my-2 bg-green-700 hover:shadow-[0_0_15px_rgba(74,222,128,0.9)] transition-shadow duration-300 block cursor-pointer mx-auto block" label="Buy" onClick={() => router.push(`/home/product/${product_id}`)} />
   }
 
 

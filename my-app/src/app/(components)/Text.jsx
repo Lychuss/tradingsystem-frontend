@@ -15,7 +15,7 @@ export default function Text() {
   }, []);
 
   return (
-    <span className="text-white font-semibold">
+    <span className="text-white font-semibold mr-2">
       {studentId}
     </span>
   );
