@@ -3,9 +3,12 @@
 import { FaShoppingCart } from "react-icons/fa";
 import { CgProfile } from "react-icons/cg";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import Text from "./Text";
 
 export default function Header() {
+
+  const router = useRouter();
   
   const [show, setShow] = useState(false);
 
@@ -20,7 +23,7 @@ export default function Header() {
                 <li className="border-b border-black p-2 hover:rounded-md hover:bg-gray-700 cursor-pointer transition">Sells</li>
                 <li className="border-black border-b p-2 hover:shadow-md hover:bg-gray-700 cursor-pointer transition">Trade</li>
                 <li className="border-black border-b p-2 hover:shadow-md hover:bg-gray-700 cursor-pointer transition">About</li>
-                <li className="border-black border-b p-2 hover:rounded-md hover:bg-gray-700 cursor-pointer transition">Sign Out</li>
+                <li className="border-black border-b p-2 hover:rounded-md hover:bg-gray-700 cursor-pointer transition" onClick={() => router.push("/login")}>Sign Out</li>
             </ul>
         </div>
     )}

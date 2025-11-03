@@ -62,6 +62,10 @@ export default function Login(){
         }
     }
 
+    document.addEventListener("keypress", async (event) => {
+        if(event.key === "Enter") submitAccount();
+    });
+
     return <>
         <section className="border border-gray-600 shadow-[5px_5px_10px_white] rounded-lg bg-gray-600 w-250 h-150 grid grid-cols-2 gap-1 font-mono">
             <div className="flex flex-col justify-center content-center items-center">
